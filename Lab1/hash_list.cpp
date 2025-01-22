@@ -18,7 +18,7 @@ void hash_list::insert(int key, float value) {
     else {
         bool is_updated = false;
         node *prev_node = head;
-        for (node *end_node = head->next; end_node != nullptr; end_node = end_node->next) {
+        for (node *end_node = head; end_node != nullptr; end_node = end_node->next) {
             if (end_node -> key == key) {
                 end_node -> value = value;
                 is_updated = true;

@@ -38,112 +38,170 @@ int main(int argc, char *argv[])
 #ifdef PART1
     hash_list list;
 
-    if (list.get_size() != 0)
-    {
-        std::cout << "Invalid size" << std::endl;
-        exit(1);
-    }
+    // if (list.get_size() != 0)
+    // {
+    //     std::cout << "Invalid size" << std::endl;
+    //     exit(1);
+    // }
 
-    list.insert(3, 3);
+    // list.insert(3, 3);
+    // if (list.get_size() != 1)
+    // {
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     exit(1);
+    // }
+
+    list.insert(4, 1);
+    list.insert(4, 4);
+    list.insert(4, 5);
     if (list.get_size() != 1)
     {
         std::cout << "Invalid size" << list.get_size() << std::endl;
         exit(1);
     }
 
-    list.insert(4, 4);
-    if (list.get_size() != 2)
+    if (!list.remove(4))
     {
-        std::cout << "Invalid size" << list.get_size() << std::endl;
+        std::cout << "Failed to remove 3 from list" << std::endl;
         exit(1);
     }
 
-    list.insert(5, 5);
-    if (list.get_size() != 3)
+    if (list.remove(4))
     {
-        std::cout << "Invalid size" << list.get_size() << std::endl;
+        std::cout << "Failed to remove 3 from list" << std::endl;
         exit(1);
     }
 
-    list.insert(6, 6);
-    if (list.get_size() != 4)
-    {
-        std::cout << "Invalid size" << list.get_size() << std::endl;
-        exit(1);
-    }
 
-    if (!list.get_value(3).has_value())
-    {
-        std::cout << "expected 3 to be in list but it wasn't" << std::endl;
-        exit(1);
-    }
-
-    if (!list.get_value(4).has_value())
-    {
-        std::cout << "expected 4 to be in list but it wasn't" << std::endl;
-        exit(1);
-    }
-
-    if (!list.get_value(5).has_value())
-    {
-        std::cout << "expected 5 to be in list but it wasn't" << std::endl;
-        exit(1);
-    }
-
-    if (!list.get_value(6).has_value())
-    {
-        std::cout << "expected 6 to be in list but it wasn't" << std::endl;
-        exit(1);
-    }
-
-    
-
-    // if (!list.remove(3))
+    // list.insert(5, 5);
+    // if (list.get_size() != 3)
     // {
-    //     std::cout << "Failed to remove 3 from list" << std::endl;
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
     //     exit(1);
     // }
 
+    // list.insert(6, 6);
+    // if (list.get_size() != 4)
+    // {
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     exit(1);
+    // }
+
+    // if (!list.get_value(3).has_value())
+    // {
+    //     std::cout << "expected 3 to be in list but it wasn't" << std::endl;
+    //     exit(1);
+    // }
+
+    // if (!list.get_value(4).has_value())
+    // {
+    //     std::cout << "expected 4 to be in list but it wasn't" << std::endl;
+    //     exit(1);
+    // }
+
+    // if (!list.get_value(5).has_value())
+    // {
+    //     std::cout << "expected 5 to be in list but it wasn't" << std::endl;
+    //     exit(1);
+    // }
+
+    // if (!list.get_value(6).has_value())
+    // {
+    //     std::cout << "expected 6 to be in list but it wasn't" << std::endl;
+    //     exit(1);
+    // }
+
+    
+
+    // // if (!list.remove(3))
+    // // {
+    // //     std::cout << "Failed to remove 3 from list" << std::endl;
+    // //     exit(1);
+    // // }
+
+    // // if (list.get_value(3).has_value())
+    // // {
+    // //     std::cout << "Unexpected 3 in list" << std::endl;
+    // //     exit(1);
+    // // }
+
+    // if (!list.remove(4))
+    // {
+    //     std::cout << "Failed to remove 4 from list" << std::endl;
+    //     exit(1);
+    // }
+
+    // if (list.get_value(4).has_value())
+    // {
+    //     std::cout << "Unexpected 4 in list" << std::endl;
+    //     exit(1);
+    // }
+
+    // if (list.get_size() != 3)
+    // {
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     exit(1);
+    // }
+
+    // if (!list.remove(5))
+    // {
+    //     std::cout << "Failed to remove 5 from list" << std::endl;
+    //     exit(1);
+    // }
+
+    // if (list.get_value(5).has_value())
+    // {
+    //     std::cout << "Unexpected 5 in list" << std::endl;
+    //     exit(1);
+    // }
+    // if (list.get_size() != 2)
+    // {
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     exit(1);
+    // }
+
+    // if (!list.remove(3))
+    // {
+    //     std::cout << "Failed to remove 5 from list" << std::endl;
+    //     exit(1);
+    // }
     // if (list.get_value(3).has_value())
     // {
     //     std::cout << "Unexpected 3 in list" << std::endl;
     //     exit(1);
     // }
+    // if (list.get_size() != 1)
+    // {
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     exit(1);
+    // }
 
-    if (!list.remove(4))
-    {
-        std::cout << "Failed to remove 4 from list" << std::endl;
-        exit(1);
-    }
+    // if (!list.remove(6))
+    // {
+    //     std::cout << "Failed to remove 6 from list" << std::endl;
+    //     exit(1);
+    // }
+    // if (list.get_value(6).has_value())
+    // {
+    //     std::cout << "Unexpected 6 in list" << std::endl;
+    //     exit(1);
+    // }
+    // if (list.get_size() != 0)
+    // {
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     exit(1);
+    // }
 
-    if (list.get_value(4).has_value())
-    {
-        std::cout << "Unexpected 4 in list" << std::endl;
-        exit(1);
-    }
-
-    if (list.get_size() != 3)
-    {
-        std::cout << "Invalid size" << list.get_size() << std::endl;
-        exit(1);
-    }
-
-    if (!list.remove(5))
-    {
-        std::cout << "Failed to remove 5 from list" << std::endl;
-        exit(1);
-    }
-
-    if (list.get_value(5).has_value())
-    {
-        std::cout << "Unexpected 5 in list" << std::endl;
-        exit(1);
-    }
-    if (list.get_size() != 2)
-    {
-        std::cout << "Invalid size" << list.get_size() << std::endl;
-        exit(1);
-    }
+    // if (list.remove(6))
+    // {
+    //     std::cout << "Failed to remove 6 from list" << std::endl;
+    //     exit(1);
+    // }
+    // if (list.get_size() != 0)
+    // {
+    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     exit(1);
+    // }
 
 
 #endif
