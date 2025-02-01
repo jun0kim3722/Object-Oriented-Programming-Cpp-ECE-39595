@@ -150,7 +150,7 @@ std::optional<std::pair<const int *, float *>> hash_list::get_iter_value() {
         return std::nullopt;
     }
 
-    return std::make_pair(&iter_ptr -> key, &iter_ptr -> value);
+    return std::make_pair(new int(iter_ptr -> key), new float(iter_ptr -> value));
 }
 
 

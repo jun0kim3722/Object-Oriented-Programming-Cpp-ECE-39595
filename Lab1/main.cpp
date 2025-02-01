@@ -37,40 +37,170 @@ int main(int argc, char *argv[])
 
 #ifdef PART1
     hash_list list;
+    hash_list list2(list);
+    if (list2.get_size() != 0)
+    {
+        std::cout << "Invalid size" << list2.get_size() << std::endl;
+        exit(1);
+    }
+    if (list2.get_head() != nullptr) {
+        std::cout << "Invalid head" << list2.get_head() << std::endl;
+    }
+    if (list2.get_ptr() != nullptr) {
+        std::cout << "Invalid iterptr" << list2.get_ptr() << std::endl;
+    }
 
-    // if (list.get_size() != 0)
+    hash_list list3 = list;
+    if (list3.get_size() != 0)
+    {
+        std::cout << "Invalid size" << list3.get_size() << std::endl;
+        exit(1);
+    }
+    if (list3.get_head() != nullptr) {
+        std::cout << "Invalid head" << list3.get_head() << std::endl;
+    }
+    if (list3.get_ptr() != nullptr) {
+        std::cout << "Invalid iterptr" << list3.get_ptr() << std::endl;
+    }
+    
+
+    list.insert(1, 1);
+    list.insert(2, 4);
+    list.insert(3, 5);
+
+    if (list.get_head() == nullptr) {
+        std::cout << "Invalid head" << std::endl;
+    }
+    if (list.get_ptr() != nullptr) {
+        std::cout << "Invalid iterptr" << std::endl;
+    }
+
+    /** Get pointers to key/value pairs */
+    std::optional<std::pair<const int *, float *>> node_values = list.get_iter_value();
+    if (node_values.has_value()) {
+        std::cout << "Invalid get_iter_value" << list.get_ptr() << std::endl;
+    }
+    // list.increment_iter();
+    list.reset_iter();
+
+    if (!list.get_value(1).has_value())
+    {
+        std::cout << "expected 1 to be in list2 but it wasn't" << std::endl;
+        exit(1);
+    }
+
+    if (list.get_ptr() == nullptr) {
+        std::cout << "Invalid iterptr" << list.get_ptr() << std::endl;
+    }
+
+    node_values = list.get_iter_value();
+    if (!node_values.has_value()) {
+        std::cout << "Invalid none get_iter_value" << list.get_ptr() << std::endl;
+    }
+    else {
+        std::cout << "get_iter_value" << *node_values.value().first << ", " << *node_values.value().second << std::endl;
+    }
+    list.increment_iter();
+
+    node_values = list.get_iter_value();
+    if (!node_values.has_value()) {
+        std::cout << "Invalid none get_iter_value" << list.get_ptr() << std::endl;
+    }
+    else {
+        std::cout << "get_iter_value" << *node_values.value().first << ", " << *node_values.value().second << std::endl;
+    }
+    list.increment_iter();
+
+    node_values = list.get_iter_value();
+    if (!node_values.has_value()) {
+        std::cout << "Invalid none get_iter_value" << list.get_ptr() << std::endl;
+    }
+    else {
+        std::cout << "get_iter_value" << *node_values.value().first << ", " << *node_values.value().second << std::endl;
+    }
+    list.increment_iter();
+
+    node_values = list.get_iter_value();
+    if (node_values.has_value()) {
+        std::cout << "Invalid get_iter_value" << list.get_ptr() << std::endl;
+    }
+    if (!list.iter_at_end()) {
+        std::cout << "Invalid iter_at_end" << list.get_ptr() << std::endl;
+    }
+
+    list.increment_iter();
+    if (!list.iter_at_end()) {
+        std::cout << "Invalid iter_at_end" << list.get_ptr() << std::endl;
+    }
+
+
+
+
+    hash_list list4(list);
+    if (list4.get_size() != 3)
+    {
+        std::cout << "Invalid size" << list4.get_size() << std::endl;
+        exit(1);
+    }
+    if (!list4.get_value(1).has_value())
+    {
+        std::cout << "expected 1 to be in list4 but it wasn't" << std::endl;
+        exit(1);
+    }
+    if (!list4.get_value(2).has_value())
+    {
+        std::cout << "expected 2 to be in list4 but it wasn't" << std::endl;
+        exit(1);
+    }
+    if (!list4.get_value(3).has_value())
+    {
+        std::cout << "expected 3 to be in list4 but it wasn't" << std::endl;
+        exit(1);
+    }
+
+    // list3 = list;
+    // if (list3.get_size() != 3)
     // {
-    //     std::cout << "Invalid size" << std::endl;
+    //     std::cout << "Invalid size" << list3.get_size() << std::endl;
+    //     exit(1);
+    // }
+    // if (!list3.get_value(1).has_value())
+    // {
+    //     std::cout << "expected 1 to be in list3 but it wasn't" << std::endl;
+    //     exit(1);
+    // }
+    // if (!list3.get_value(2).has_value())
+    // {
+    //     std::cout << "expected 2 to be in list3 but it wasn't" << std::endl;
+    //     exit(1);
+    // }
+    // if (!list3.get_value(3).has_value())
+    // {
+    //     std::cout << "expected 3 to be in list3 but it wasn't" << std::endl;
     //     exit(1);
     // }
 
-    // list.insert(3, 3);
-    // if (list.get_size() != 1)
+    // if (!list3.remove(3))
     // {
-    //     std::cout << "Invalid size" << list.get_size() << std::endl;
+    //     std::cout << "Failed to remove 3 from list" << std::endl;
+    //     exit(1);
+    // }
+    // if (!list3.remove(2))
+    // {
+    //     std::cout << "Failed to remove 3 from list" << std::endl;
+    //     exit(1);
+    // }
+    // if (!list3.remove(1))
+    // {
+    //     std::cout << "Failed to remove 3 from list" << std::endl;
     //     exit(1);
     // }
 
-    list.insert(4, 1);
-    list.insert(4, 4);
-    list.insert(4, 5);
-    if (list.get_size() != 1)
-    {
-        std::cout << "Invalid size" << list.get_size() << std::endl;
-        exit(1);
-    }
-
-    if (!list.remove(4))
-    {
-        std::cout << "Failed to remove 3 from list" << std::endl;
-        exit(1);
-    }
-
-    if (list.remove(4))
-    {
-        std::cout << "Failed to remove 3 from list" << std::endl;
-        exit(1);
-    }
+    // if (list.remove(4))
+    // {
+    //     std::cout << "Failed to remove 3 from list" << std::endl;
+    //     exit(1);
+    // }
 
 
     // list.insert(5, 5);
