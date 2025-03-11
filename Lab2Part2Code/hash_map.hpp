@@ -32,8 +32,8 @@ hash_map<K,V> &hash_map<K,V>::operator=(const hash_map &other) {
     _upper_load_factor = temp._upper_load_factor;
     _lower_load_factor = temp._lower_load_factor;
 
-    hash_list<K,V> *new_head = this->_head;
-    this->_head = temp._head;
+    hash_list<K,V> *new_head = _head;
+    _head = temp._head;
     temp._head = new_head;
 
     return *this;

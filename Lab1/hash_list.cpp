@@ -122,12 +122,12 @@ hash_list &hash_list::operator=(const hash_list &other) {
 
     size = temp.size;
 
-    node *new_head = this->head;
-    this->head = temp.head;
+    node *new_head = head;
+    head = temp.head;
     temp.head = new_head;
 
-    node *new_iter_ptr = this->head;
-    this->iter_ptr = temp.iter_ptr;
+    node *new_iter_ptr = head;
+    iter_ptr = temp.iter_ptr;
     temp.iter_ptr = new_iter_ptr;
 
     return *this;
